@@ -1,0 +1,23 @@
+.office__card{
+    min-height:136px;
+    background: radial-gradient(108.86% 100.3% at 100.06% 100.3%, #0AB169 42.03%, #0AB169 87.21%);
+    border-radius: 8px;
+    
+    padding: 0;
+    padding-left: 5%;
+    border:none;
+    
+}
+
+.office__card__body{
+    background-color: white;
+    min-height: 100%;
+    width: 100%;
+    border-radius: 0 8px 8px 0px;
+    padding: 15px;
+}
+
+.office__font__one{
+    font-size:12px;
+    font-weight: 100;
+}
