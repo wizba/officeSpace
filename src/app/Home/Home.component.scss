@@ -11,13 +11,14 @@
 }
 
 .fab__button{
-    position: fixed;
-    right: 635px;
-    bottom: 165px;
+    position: sticky;
+    left:400px;
+    bottom: 9px;
     z-index: 1;
     font-size: large;
     border-radius: 50%;
     height: 50px;
     width: 50px;
+    background-color:#0D4477
 }
 
