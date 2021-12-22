@@ -1,7 +1,15 @@
 <div class="d-flex justify-content-center align-items-center " style ="height:100vh">
     <div class="mobile__display">
        <div class="mt-5 mb-3">All Offices</div>
-       <app-OfficeCard></app-OfficeCard>
+       <div class="mb-3" *ngFor="let item of [1,2,3,4,5,6,7,8,9]">
+        <app-OfficeCard></app-OfficeCard>
+       </div>
+      
+      
+       <button type="button" class="btn btn-primary fab__button">
+           +
+    </button>
+        
     </div>
-    
+
 </div>

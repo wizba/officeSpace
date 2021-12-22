@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { HomeModule } from './Home/Home.module';
 import { OfficeCardComponent } from './SharedComponents/OfficeCard/OfficeCard.component';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,8 @@ import { OfficeCardComponent } from './SharedComponents/OfficeCard/OfficeCard.co
     AppRoutingModule,
     BrowserAnimationsModule,
     TooltipModule.forRoot(),
-    HomeModule
+    HomeModule,
+    ButtonsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],
