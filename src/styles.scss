@@ -5,3 +5,35 @@
 
 /* Importing Datepicker SCSS file. */
 @import "~ngx-bootstrap/datepicker/bs-datepicker";
+
+
+.mobile__display{
+    height: 736px;
+    width: 414px;
+    background-color: #E5E5E5;
+    font-size: 28px;
+    font-weight: 600;
+    padding: 14px;
+    font-family: 'Roboto', sans-serif;
+    overflow-y: auto;
+    position: relative;
+}
+
+
+.fab__button{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    font-size: large;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-color: #0D4477;
+    transform: translate(267%, 584%);
+}
+
+.office__font__two{
+    font-size:18px;
+    font-weight: 400;
+}

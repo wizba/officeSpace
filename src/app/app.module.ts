@@ -8,11 +8,11 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { HomeModule } from './Home/Home.module';
 import { OfficeCardComponent } from './SharedComponents/OfficeCard/OfficeCard.component';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { OfficeViewModule } from './OfficeView/OfficeView.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -20,10 +20,10 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
     BrowserAnimationsModule,
     TooltipModule.forRoot(),
     HomeModule,
-    ButtonsModule.forRoot()
+    ButtonsModule.forRoot(),
+    OfficeViewModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: []
 })
 export class AppModule { }
