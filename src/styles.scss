@@ -5,11 +5,11 @@
 
 /* Importing Datepicker SCSS file. */
 @import "~ngx-bootstrap/datepicker/bs-datepicker";
-
+@import "~animate.css/animate.css";
 
 .mobile__display{
     height: 736px;
-    width: 414px;
+    width: 375px;
     background-color: #E5E5E5;
     font-size: 28px;
     font-weight: 600;
@@ -17,8 +17,8 @@
     font-family: 'Roboto', sans-serif;
     overflow-y: auto;
     position: relative;
+    padding-bottom: 46px;
 }
-
 
 .fab__button{
     position: fixed;
@@ -30,10 +30,133 @@
     height: 50px;
     width: 50px;
     background-color: #0D4477;
-    transform: translate(267%, 584%);
+    transform: translate(210%, 584%);
 }
 
 .office__font__two{
     font-size:18px;
     font-weight: 400;
 }
+.row{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.header{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #e5e5e5;
+    height: 53px;
+}
+
+
+.modal__container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-control{
+    border:1px solid #efefef;
+    
+}
+.my__input{
+    height: 48px;
+}
+
+
+
+.my__input{
+    height:48px;
+    border-radius: 8px;
+    padding-right: 41px;
+}
+
+.search__svg{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(0, -50%);
+    z-index: 1;
+    
+}
+
+.img-fluid {
+    max-width: 55px;
+    height: auto;
+}
+
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex !important;
+    align-items: center;
+}
+
+
+.carosel__buttons{
+    border: #489DDA 1.5px solid;
+    border-radius: 50%;
+    height: 8px;
+    width: 8px;
+}
+
+.carosel__buttons__active{
+    background-color: #489DDA;
+    border: #489DDA 1.5px solid;
+    border-radius: 50%;
+    height: 8px;
+    width: 8px;
+}
+
+.modal-sm{
+    width: 100%;
+}
+
+.next__button{
+    background-color: #489DDA;
+    height: 48px;
+    width: 232px;
+}
+
+.office__color{
+    background-color: #00ff80;
+    border-radius: 50%;
+    height: 36px;
+    width: 36px;
+}
+
+.office__cover{
+    display: flex;
+    justify-content: center;
+    height: 64px;
+    width: 48px;
+}
+.office__cover2{
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+}
+
+.space-evenly { 
+    justify-content: space-evenly; 
+  }
+
+  
+.space-between { 
+    justify-content: space-between;
+  }

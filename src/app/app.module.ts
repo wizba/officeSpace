@@ -1,6 +1,7 @@
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,9 +22,12 @@ import { OfficeViewModule } from './OfficeView/OfficeView.module';
     TooltipModule.forRoot(),
     HomeModule,
     ButtonsModule.forRoot(),
-    OfficeViewModule
+    OfficeViewModule,
+    ModalModule .forRoot(),
+   
   ],
   providers: [],
   bootstrap: [AppComponent],
+  exports:[ModalModule]
 })
 export class AppModule { }

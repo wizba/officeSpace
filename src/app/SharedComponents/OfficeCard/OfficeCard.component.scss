@@ -1,23 +1,60 @@
 .office__card{
-    min-height:136px;
+    
     background: radial-gradient(108.86% 100.3% at 100.06% 100.3%, #0AB169 42.03%, #0AB169 87.21%);
     border-radius: 8px;
     
     padding: 0;
     padding-left: 5%;
     border:none;
+    overflow: hidden;
+   
+}
+
+.office__card__expand{
     
+    background: radial-gradient(108.86% 100.3% at 100.06% 100.3%, #0AB169 42.03%, #0AB169 87.21%);
+    border-radius: 8px;
+    
+    padding: 0;
+    padding-left: 5%;
+    border:none;
+    transition: height 1s ease-in;
 }
 
 .office__card__body{
     background-color: white;
-    min-height: 100%;
+    min-height: 89px;
+    .myContent
+    {
+        height: 105px;
+        transition: height 1s ease-in;
+    }
+   
     width: 100%;
     border-radius: 0 8px 8px 0px;
     padding: 15px;
+    transition: 0.5s;
 }
 
 .office__font__one{
     font-size:12px;
     font-weight: 100;
+}
+.panel-group{
+    min-height:136px;
+}
+
+.office__card_bottom{
+    height: 0px;
+    overflow-y: auto;
+    display: none;
+    transition: 0.5s;
+}
+
+.office__card_bottom.active{
+    display: block;
+    min-height: 136px;
+   // overflow-y: auto;
+   transition: 0.5s;
+   cursor:default
 }

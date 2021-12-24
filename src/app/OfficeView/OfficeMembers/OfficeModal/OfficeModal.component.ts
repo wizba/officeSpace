@@ -1,11 +1,12 @@
-import { Component, OnInit,ViewChild  } from '@angular/core';
-import { ModalDirective } from 'ngx-bootstrap/modal'
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalDirective } from 'ngx-bootstrap/modal';
+
 @Component({
-  selector: 'app-OfficeView',
-  templateUrl: './OfficeView.component.html',
-  styleUrls: ['./OfficeView.component.scss']
+  selector: 'app-OfficeModal',
+  templateUrl: './OfficeModal.component.html',
+  styleUrls: ['./OfficeModal.component.scss']
 })
-export class OfficeViewComponent implements OnInit {
+export class OfficeModalComponent implements OnInit {
 
   openModal: boolean = false;
   constructor() { }

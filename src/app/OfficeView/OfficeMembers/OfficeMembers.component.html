@@ -1,0 +1,238 @@
+<div
+  class="d-flex justify-content-center align-items-center"
+  style="height: 100vh"
+>
+  <div class="mobile__display pt-0">
+    <div class="header mb-3 pt-2">
+      <div class="row">
+        <div class="col-5 pl-0">
+          <svg
+            (click)="goBack()"
+            xmlns="http://www.w3.org/2000/svg"
+            width="23"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M11 17l-5-5m0 0l5-5m-5 5h12"
+            />
+          </svg>
+        </div>
+        <div class="col-7 pl-0" style="font-size: 21px; font-weight: 400">
+          Office
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <app-OfficeCard></app-OfficeCard>
+    </div>
+
+    <div style="position: relative">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control my__input"
+          placeholder="Search"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+        />
+      </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        fill="currentColor"
+        class="bi bi-search search__svg"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+        />
+      </svg>
+    </div> 
+
+     <div class="mt-2 mb-3">
+      <div class="row">
+        <div
+          class="col-10 align-items-center"
+          style="font-size: 24px; font-weight: 600"
+        >
+          Staff Members in the office
+        </div>
+        <div class="col-2 office__font__two d-flex align-items-center">11</div>
+      </div>
+    </div> 
+     <div class="row mb-4">
+      <div class="col-3">
+        <img
+          src="`../../../assets/icon-avatar-1.png"
+          class="img-fluid"
+          alt="Responsive image"
+        />
+      </div>
+      <div
+        class="col-7 d-flex align-items-center"
+        style="font-size: 16px; font-weight: 400"
+      >
+        name surname
+      </div>
+      <div class="col-2 d-flex align-items-center justify-content-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-3">
+        <img
+          src="`../../../assets/icon-avatar-2.png"
+          class="img-fluid"
+          alt="Responsive image"
+        />
+      </div>
+      <div
+        class="col-7 d-flex align-items-center"
+        style="font-size: 16px; font-weight: 400"
+      >
+        name surname
+      </div>
+      <div class="col-2 d-flex align-items-center justify-content-end">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-3">
+        <img
+          src="`../../../assets/icon-avatar-3.png"
+          class="img-fluid"
+          alt="Responsive image"
+        />
+      </div>
+      <div
+        class="col-7 d-flex align-items-center"
+        style="font-size: 16px; font-weight: 400"
+      >
+        name surname
+      </div>
+      <div class="col-2 d-flex align-items-center justify-content-end">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-3">
+        <img
+          src="`../../../assets/icon-avatar-4.png"
+          class="img-fluid"
+          alt="Responsive image"
+        />
+      </div>
+      <div
+        class="col-7 d-flex align-items-center"
+        style="font-size: 16px; font-weight: 400"
+      >
+        name surname
+      </div>
+      <div class="col-2 d-flex align-items-center justify-content-end">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-3">
+        <img
+          src="`../../../assets/icon-avatar-3.png"
+          class="img-fluid"
+          alt="Responsive image"
+        />
+      </div>
+      <div
+        class="col-7 d-flex align-items-center"
+        style="font-size: 16px; font-weight: 400"
+      >
+        name surname
+      </div>
+      <div class="col-2 d-flex align-items-center justify-content-end">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Modal start -->
+    <app-OfficeModal></app-OfficeModal>
+    <!-- Modal end -->
+    <button
+      type="button"
+      class="btn btn-primary fab__button"
+      (click)="showChildModal()"
+    >
+      +
+    </button>
+  </div>
+</div>
