@@ -10,6 +10,7 @@ import { HomeModule } from './Home/Home.module';
 import { OfficeCardComponent } from './SharedComponents/OfficeCard/OfficeCard.component';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { OfficeViewModule } from './OfficeView/OfficeView.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,10 +25,12 @@ import { OfficeViewModule } from './OfficeView/OfficeView.module';
     ButtonsModule.forRoot(),
     OfficeViewModule,
     ModalModule .forRoot(),
+    ReactiveFormsModule,
+    FormsModule
    
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports:[ModalModule]
+  exports:[ModalModule,FormsModule]
 })
 export class AppModule { }

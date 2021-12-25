@@ -6,35 +6,53 @@
  tabindex="-1"
  role="dialog"
  aria-labelledby="dialog-child-name"
+ (onHide)="handler()"
 >
  <div class="modal-dialog modal-sm">
    <div class="modal-content" style="background-color: #F8FAFC;">
      <div class="modal-header d-flex align-items-center" style="border-bottom: none;">
-       <svg xmlns="http://www.w3.org/2000/svg" width="25" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+       <svg *ngIf="this.showNextPage && !showActions" (click)="goBack()" xmlns="http://www.w3.org/2000/svg" width="25" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
          <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
        </svg>
-       <h4 id="dialog-child-name" class="modal-title pull-left mr-4 mb-2" style="font-size:24px ;">
-         New staff Member
+       <h4 *ngIf="!showActions" id="dialog-child-name" class="modal-title pull-left mr-4 mb-2" style="font-size:16px ;">
+         New staff Member 
        </h4>
       
-       <svg xmlns="http://www.w3.org/2000/svg" width="25" (click)="hideChildModal()" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+       <svg *ngIf="!showActions" xmlns="http://www.w3.org/2000/svg" width="25" (click)="hideChildModal()" fill="none" viewBox="0 0 24 24" stroke="currentColor">
          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
        </svg>
        
      </div>
+     <div class="modal-header row" style="border-bottom: none;">
+      <svg class="col" *ngIf="!this.showNextPage && showActions && delete" (click)="goBack()" xmlns="http://www.w3.org/2000/svg" width="25" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+      </svg>
+      <h4 *ngIf="!this.showNextPage && showActions && delete" id="dialog-child-name" class="modal-title mr-4 mb-2 col" style="font-size:16px ;">
+        Are you sure you want to delete staff member ? 
+      </h4>
+     
+     
+      
+    </div>
      <div class="modal-body">
-       <form>
-         <div class="form-group">
+       
+       <form *ngIf="!showActions">
+         <div class="form-group animate__animated animate__fadeIn" *ngIf="!this.showNextPage">
            
            <input type="text" class="form-control my__input" id="firstName"  placeholder="First Name">
            
          </div>
-         <div class="form-group">
+         <div class="form-group animate__animated animate__fadeIn" *ngIf="!this.showNextPage">
            
            <input type="text" class="form-control my__input" id="lastName"  placeholder="Last Name">
            
          </div>
-         <div class="row">
+
+
+         <h4 *ngIf="this.showNextPage" id="dialog-child-name" class="modal-title pull-left mr-4 mb-2" style="font-size:20px ;">
+          Avatar 
+        </h4>
+         <div class="row animate__animated animate__fadeIn" *ngIf="this.showNextPage" >
            <div class="col-3 d-flex justify-content-center mt-2" *ngFor="let item of [1,2,3,4]">
              <img
              src="`../../../assets/icon-avatar-1.png"
@@ -52,16 +70,35 @@
          </div>
          <!-- carosel buttons start -->
          <div class="d-flex justify-content-center mt-4">
-             <span class="mr-2  carosel__buttons"></span>
-             <span class="carosel__buttons carosel__buttons__active"></span>
+             <span class="mr-2  carosel__buttons" [ngClass]="{'carosel__buttons__active':!showNextPage}"></span>
+             <span class="carosel__buttons" [ngClass]="{'carosel__buttons__active':showNextPage}"></span>
          </div>
          <!-- carosel buttons end -->
          <div class="d-flex mt-5 justify-content-center">
-           <button type="button" class="btn btn-primary btn-lg btn-block rounded-pill next__button">Next</button>
+           <button style="font-size: 16px;" (click)="buttonChange()" type="button" class="btn btn-primary btn-lg btn-block rounded-pill next__button">{{buttonText}}</button>
          </div>
+       </form>
+
+       <form *ngIf="showActions && !delete">
+        <div class="d-flex mt-2 justify-content-center">
+          <button style="font-size: 16px;" (click)="onEditStaffMember()" type="button" class="btn btn-primary btn-lg btn-block rounded-pill next__button">EDIT STAFF MEMBER</button>
+        </div>
+        <div class="d-flex mt-2 justify-content-center">
+          <button style="font-size: 16px;" (click)="onDeleteMember()" type="button" class="btn-lg btn-block rounded-pill next__button2">DELETE STAFF MEMBER</button>
+        </div>
+       </form>
+
+       <form *ngIf="showActions && delete">
+        <div class="d-flex mt-2 justify-content-center">
+          <button style="font-size: 16px;" (click)="hideChildModal()" type="button" class="btn btn-lg btn-block rounded-pill delete__button">DELETE STAFF MEMBER</button>
+        </div>
+        <div class="d-flex mt-2 justify-content-center">
+          <button style="font-size: 16px;" (click)="hideChildModal()" type="button" class="btn-lg btn-block rounded-pill next__button2">KEEP STAFF MEMBER</button>
+        </div>
        </form>
      </div>
    </div>
  </div>
+ 
 </div>
 <!-- Modal end -->

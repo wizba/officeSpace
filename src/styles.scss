@@ -18,6 +18,10 @@
     overflow-y: auto;
     position: relative;
     padding-bottom: 46px;
+
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+    border-radius: 10px;
+  transition: 0.4s;
 }
 
 .fab__button{
@@ -132,6 +136,24 @@
     width: 232px;
 }
 
+
+.next__button2 {
+    font-size: 16px;
+    background-color: transparent;
+    color: #489DDA;
+    border: none;
+    width: 232px;
+    padding:16px 0;
+    outline: none;
+    
+}
+
+.delete__button{
+    background-color: #F44336;
+    height: 48px;
+    width: 232px;
+    color: #fff;
+}
 .office__color{
     background-color: #00ff80;
     border-radius: 50%;
@@ -160,3 +182,61 @@
 .space-between { 
     justify-content: space-between;
   }
+
+
+  .scroll-black * {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(70, 70, 70) auto;
+    
+}
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(247, 66, 66);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  @media (max-width: 600px) {
+    .mobile__display{
+        height: 736px;
+        width: 100%;
+        background-color: #E5E5E5;
+        font-size: 28px;
+        font-weight: 600;
+        padding: 14px;
+        font-family: 'Roboto', sans-serif;
+        overflow-y: auto;
+        position: relative;
+        padding-bottom: 46px;
+    
+        box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+        border-radius: 10px;
+      transition: 0.4s;
+    }
+    .fab__button{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        font-size: large;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        background-color: #0D4477;
+        transform: translate(280%, 584%);
+    }
+}

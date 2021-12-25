@@ -10,6 +10,7 @@ import { EditOfficeComponent } from './EditOffice/EditOffice.component';
 import { OfficeRoutingModule } from './OfficeRoute/Office.router';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { OfficeModalComponent } from './OfficeMembers/OfficeModal/OfficeModal.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { OfficeModalComponent } from './OfficeMembers/OfficeModal/OfficeModal.co
     SharedModule,
     ModalModule .forRoot(),
     OfficeRoutingModule,
-    AccordionModule.forRoot()
+    AccordionModule.forRoot(),
+    ReactiveFormsModule
   ],
   declarations: [
     OfficeViewComponent,

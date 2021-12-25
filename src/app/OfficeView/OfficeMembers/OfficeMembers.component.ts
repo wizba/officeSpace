@@ -21,10 +21,13 @@ export class OfficeMembersComponent implements OnInit {
 
   @ViewChild('childModal', { static: false }) childModal?: ModalDirective;
  
-  showChildModal(): void {
-    this.officeModal.showChildModal();
+  showChildModal(actions:boolean): void {
+    this.officeModal.showChildModal(actions);
   }
- 
+
+  showActions(){
+    this.officeModal.showChildModal(true);
+  }
   hideChildModal(): void {
     this.childModal?.hide();
   }
