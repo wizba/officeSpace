@@ -136,7 +136,9 @@ export class OfficeModalComponent implements OnInit {
     
        this.cardData = data;
        this.api.loading = false;
-    },error =>console.log(error))
+       this.hideChildModal();
+       this.toastr.success('delete was successful.')
+    },error =>this.toastr.error('something went wrong.'))
 
   }
  
