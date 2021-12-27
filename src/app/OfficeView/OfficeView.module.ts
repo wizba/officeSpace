@@ -11,6 +11,7 @@ import { OfficeRoutingModule } from './OfficeRoute/Office.router';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { OfficeModalComponent } from './OfficeMembers/OfficeModal/OfficeModal.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ModalModule .forRoot(),
     OfficeRoutingModule,
     AccordionModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SearchPipeModule
   ],
   declarations: [
     OfficeViewComponent,

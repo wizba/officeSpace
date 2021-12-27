@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { APIService } from '../Services/API.service';
+import { ShareDataService } from '../Services/ShareData';
 import { StoreService } from '../Services/Store.service';
 
 @Component({

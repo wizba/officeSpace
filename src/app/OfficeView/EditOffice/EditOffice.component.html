@@ -102,23 +102,23 @@
     </div>
     <div class="d-flex space-between mt-3 px-0" style="width:100%">
       
-        <div class="office__color" *ngFor="let item of [1,2,3,4,5,6]">
+      <div class="office__color" (click) = "selectColor(i,color,1)" [ngStyle]="{'background-color': color,'border': selected.row1[i] ?'4px solid #475569':'none','box-shadow': selected.row1[i] ?'0px 1px 3px rgba(0, 0, 0, 0.1)':'none' }" *ngFor="let color of colors.row1; let i = index">
 
-        </div>
-      
-    </div>
-    <div class="d-flex space-evenly mt-3" style="width:100%">
-      
-        <div class="office__color" *ngFor="let item of [1,2,3,4,5]">
+      </div>
+    
+  </div>
+  <div class="d-flex space-evenly mt-3" style="width:100%">
+    
+      <div class="office__color" (click) = "selectColor(i,color,2)"  [ngStyle]="{'background-color': color,'border': selected.row2[i] ?'4px solid #475569':'none','box-shadow': selected.row2[i] ?'0px 1px 3px rgba(0, 0, 0, 0.1)':'none' }" *ngFor="let color of colors.row2;let i = index">
 
-        </div>
-      
-    </div>
+      </div>
+    
+  </div>
     <div class="d-flex mt-4 justify-content-center" >
       <button type="button" class="btn btn-primary btn-lg btn-block rounded-pill next__button" style="font-size: 14px;font-weight: 500;" (click)="onSubmit()">UPDATE OFFICE</button>
     </div>
     <div class="d-flex mt-2 justify-content-center">
-      <button style="font-size: 16px;"  type="button" class="btn-lg btn-block rounded-pill next__button2">DELETE OFFICE</button>
+      <button (click)="deleteOffice()" style="font-size: 16px;"  type="button" class="btn-lg btn-block rounded-pill next__button2">DELETE OFFICE</button>
     </div>
     <!-- New office space component end -->
    

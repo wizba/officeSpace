@@ -14,6 +14,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { APIService } from './Services/API.service';
 import { StoreService } from './Services/Store.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ShareDataService } from './Services/ShareData';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,10 +32,12 @@ import { HttpClientModule } from '@angular/common/http';
     ModalModule .forRoot(),
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2SearchPipeModule,
+    ToastrModule.forRoot()
    
   ],
-  providers: [APIService,StoreService],
+  providers: [APIService,StoreService,ShareDataService],
   bootstrap: [AppComponent],
   exports:[ModalModule,FormsModule]
 })

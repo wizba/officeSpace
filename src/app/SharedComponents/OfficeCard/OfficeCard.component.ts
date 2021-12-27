@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AccordionConfig } from 'ngx-bootstrap/accordion';
+import { ShareDataService } from 'src/app/Services/ShareData';
  
 // such override allows to keep some initial values
  
@@ -17,16 +18,18 @@ export class OfficeCardComponent implements OnInit {
   expandCard:boolean = false;
   @Input() cardColor: string  = 'none';
   @Input() cardData:any;
-  constructor(private router:Router) { }
+  constructor(private router:Router,private share:ShareDataService) { }
 
   ngOnInit() {
   }
  
-  navToMembers():void{
+  navToMembers(data:any):void{
+    this.share.selectedOffice = data;
     this.router.navigate(['/office/members']);
   }
 
-  navToEditOffice():void{
+  navToEditOffice(data:any):void{
+    this.share.selectedOffice = data;
     this.router.navigate(['/office/edit']);
   }
 

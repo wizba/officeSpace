@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center align-items-center " style ="height:100vh;width:100%">
     <div class="mobile__display">
        <div class="mt-5 mb-3">All Offices</div>
-       <div class="mb-4" *ngFor="let item of offices">
+       <div class="mb-4" *ngFor="let item of offices.reverse()">
         <app-OfficeCard [cardData]="item"></app-OfficeCard>
        </div>
       
