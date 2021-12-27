@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { APIService } from './Services/API.service';
+import { StoreService } from './Services/Store.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'officeSpace';
+
+ 
+
+
 }

@@ -1,0 +1,127 @@
+<div
+  class="d-flex justify-content-center align-items-center animate__animated animate__fadeIn"
+  style="height: 100vh"
+  [formGroup]="form"
+>
+  <div class="mobile__display pt-0">
+    <div class="header mb-3 pt-2">
+      <div class="row">
+        <div class="col-5 pl-0">
+          <svg
+            (click)="goBack()"
+            xmlns="http://www.w3.org/2000/svg"
+            width="23"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M11 17l-5-5m0 0l5-5m-5 5h12"
+            />
+          </svg>
+        </div>
+        <div class="col-7 pl-0" style="font-size: 21px; font-weight: 400">
+          Edit Office
+        </div>
+      </div>
+    </div>
+   
+    <div style="position: relative">
+      <div class="input-group my-4">
+        <input
+          type="text"
+          class="form-control my__input"
+          placeholder="Office Name"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+          formControlName = "officeName"
+        />
+      </div>
+      
+    </div>
+    <div style="position: relative">
+      <div class="input-group mb-4">
+        <input
+          type="text"
+          class="form-control my__input"
+          placeholder="Physical Address"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+          formControlName="physicalAddress"
+        />
+      </div>
+      
+    </div>
+    <div style="position: relative">
+      <div class="input-group mb-4">
+        <input
+          type="text"
+          class="form-control my__input"
+          placeholder="Email"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+          formControlName="email"
+        />
+      </div>
+      
+    </div>
+    <div style="position: relative">
+      <div class="input-group mb-4">
+        <input
+          type="text"
+          class="form-control my__input"
+          placeholder="Phone Number"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+          formControlName="phoneNumber"
+        />
+      </div>
+      
+    </div>
+    <div style="position: relative">
+      <div class="input-group mb-4">
+        <input
+          type="number"
+          class="form-control my__input"
+          placeholder="Maximum Capacity"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+          formControlName="maxCapacity"
+        />
+      </div>
+      
+    </div>
+    <div class="row">
+      
+      <div class="col-12 pl-0" style="font-size: 24px; font-weight: 600;text-align: left;">
+        Office Colour
+      </div>
+    </div>
+    <div class="d-flex space-between mt-3 px-0" style="width:100%">
+      
+        <div class="office__color" *ngFor="let item of [1,2,3,4,5,6]">
+
+        </div>
+      
+    </div>
+    <div class="d-flex space-evenly mt-3" style="width:100%">
+      
+        <div class="office__color" *ngFor="let item of [1,2,3,4,5]">
+
+        </div>
+      
+    </div>
+    <div class="d-flex mt-4 justify-content-center" >
+      <button type="button" class="btn btn-primary btn-lg btn-block rounded-pill next__button" style="font-size: 14px;font-weight: 500;" (click)="onSubmit()">UPDATE OFFICE</button>
+    </div>
+    <div class="d-flex mt-2 justify-content-center">
+      <button style="font-size: 16px;"  type="button" class="btn-lg btn-block rounded-pill next__button2">DELETE OFFICE</button>
+    </div>
+    <!-- New office space component end -->
+   
+   
+  </div>
+</div>

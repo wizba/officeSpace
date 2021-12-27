@@ -1,6 +1,7 @@
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -8,11 +9,14 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { HomeModule } from './Home/Home.module';
 import { OfficeCardComponent } from './SharedComponents/OfficeCard/OfficeCard.component';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
-
+import { OfficeViewModule } from './OfficeView/OfficeView.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { APIService } from './Services/API.service';
+import { StoreService } from './Services/Store.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -20,10 +24,16 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
     BrowserAnimationsModule,
     TooltipModule.forRoot(),
     HomeModule,
-    ButtonsModule.forRoot()
+    ButtonsModule.forRoot(),
+    OfficeViewModule,
+    ModalModule .forRoot(),
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
+   
   ],
-  providers: [],
+  providers: [APIService,StoreService],
   bootstrap: [AppComponent],
-  exports: []
+  exports:[ModalModule,FormsModule]
 })
 export class AppModule { }

@@ -1,0 +1,321 @@
+<div
+  class="d-flex justify-content-center align-items-center animate__animated animate__fadeIn"
+  style="height: 100vh"
+  [formGroup]="form"
+>
+  <div class="mobile__display pt-3">
+    <div class="header mb-3 pt-2">
+      <div class="row">
+        <div class="col-5 pl-0">
+          <svg
+            (click)="goBack()"
+            xmlns="http://www.w3.org/2000/svg"
+            width="23"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M11 17l-5-5m0 0l5-5m-5 5h12"
+            />
+          </svg>
+        </div>
+        <div class="col-7 pl-0" style="font-size: 21px; font-weight: 400">
+          New office
+        </div>
+      </div>
+    </div>
+    <!-- <div class="mb-3">
+      <app-OfficeCard></app-OfficeCard>
+    </div> -->
+
+    <!-- <div style="position: relative">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control my__input"
+          placeholder="Search"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+        />
+      </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        fill="currentColor"
+        class="bi bi-search search__svg"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+        />
+      </svg>
+    </div> -->
+
+    <!-- <div class="mt-2 mb-3">
+      <div class="row">
+        <div
+          class="col-10 align-items-center"
+          style="font-size: 24px; font-weight: 600"
+        >
+          Staff Members in the office
+        </div>
+        <div class="col-2 office__font__two d-flex align-items-center">11</div>
+      </div>
+    </div> -->
+    <!-- <div class="row mb-4">
+      <div class="col-3">
+        <img
+          src="`../../../assets/icon-avatar-1.png"
+          class="img-fluid"
+          alt="Responsive image"
+        />
+      </div>
+      <div
+        class="col-7 d-flex align-items-center"
+        style="font-size: 16px; font-weight: 400"
+      >
+        name surname
+      </div>
+      <div class="col-2 d-flex align-items-center justify-content-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-3">
+        <img
+          src="`../../../assets/icon-avatar-2.png"
+          class="img-fluid"
+          alt="Responsive image"
+        />
+      </div>
+      <div
+        class="col-7 d-flex align-items-center"
+        style="font-size: 16px; font-weight: 400"
+      >
+        name surname
+      </div>
+      <div class="col-2 d-flex align-items-center justify-content-end">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-3">
+        <img
+          src="`../../../assets/icon-avatar-3.png"
+          class="img-fluid"
+          alt="Responsive image"
+        />
+      </div>
+      <div
+        class="col-7 d-flex align-items-center"
+        style="font-size: 16px; font-weight: 400"
+      >
+        name surname
+      </div>
+      <div class="col-2 d-flex align-items-center justify-content-end">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-3">
+        <img
+          src="`../../../assets/icon-avatar-4.png"
+          class="img-fluid"
+          alt="Responsive image"
+        />
+      </div>
+      <div
+        class="col-7 d-flex align-items-center"
+        style="font-size: 16px; font-weight: 400"
+      >
+        name surname
+      </div>
+      <div class="col-2 d-flex align-items-center justify-content-end">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-3">
+        <img
+          src="`../../../assets/icon-avatar-3.png"
+          class="img-fluid"
+          alt="Responsive image"
+        />
+      </div>
+      <div
+        class="col-7 d-flex align-items-center"
+        style="font-size: 16px; font-weight: 400"
+      >
+        name surname
+      </div>
+      <div class="col-2 d-flex align-items-center justify-content-end">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+          />
+        </svg>
+      </div>
+    </div> -->
+    <!-- New offce space component start -->
+    <div style="position: relative">
+      <div class="input-group my-4">
+        <input
+          type="text"
+          class="form-control my__input"
+          placeholder="Office Name"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+          formControlName = "officeName"
+        />
+      </div>
+      
+    </div>
+    <div style="position: relative">
+      <div class="input-group mb-4">
+        <input
+          type="text"
+          class="form-control my__input"
+          placeholder="Physical Address"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+          formControlName="physicalAddress"
+        />
+      </div>
+      
+    </div>
+    <div style="position: relative">
+      <div class="input-group mb-4">
+        <input
+          type="text"
+          class="form-control my__input"
+          placeholder="Email"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+          formControlName="email"
+        />
+      </div>
+      
+    </div>
+    <div style="position: relative">
+      <div class="input-group mb-4">
+        <input
+          type="text"
+          class="form-control my__input"
+          placeholder="Phone Number"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+          formControlName="phoneNumber"
+        />
+      </div>
+      
+    </div>
+    <div style="position: relative">
+      <div class="input-group mb-4">
+        <input
+          type="number"
+          class="form-control my__input"
+          placeholder="Maximum Capacity"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+          formControlName="maxCapacity"
+        />
+      </div>
+      
+    </div>
+   
+    <div class="row">
+      
+      <div class="col-12 pl-0" style="font-size: 24px; font-weight: 600;text-align: left;">
+        Office Colour
+      </div>
+    </div>
+    <div class="d-flex space-between mt-3 px-0" style="width:100%">
+      
+        <div class="office__color" (click) = "selectColor(i,color,1)" [ngStyle]="{'background-color': color,'border': selected.row1[i] ?'4px solid #475569':'none','box-shadow': selected.row1[i] ?'0px 1px 3px rgba(0, 0, 0, 0.1)':'none' }" *ngFor="let color of colors.row1; let i = index">
+
+        </div>
+      
+    </div>
+    <div class="d-flex space-evenly mt-3" style="width:100%">
+      
+        <div class="office__color" (click) = "selectColor(i,color,2)"  [ngStyle]="{'background-color': color,'border': selected.row2[i] ?'4px solid #475569':'none','box-shadow': selected.row2[i] ?'0px 1px 3px rgba(0, 0, 0, 0.1)':'none' }" *ngFor="let color of colors.row2;let i = index">
+
+        </div>
+      
+    </div>
+    <div class="d-flex mt-5 justify-content-center" >
+      <button type="button" class="btn btn-primary btn-lg btn-block rounded-pill next__button" style="font-size: 14px;font-weight: 500;" (click)="onSubmit()">ADD OFFICE</button>
+    </div>
+    <!-- New office space component end -->
+   
+   
+  </div>
+</div>
