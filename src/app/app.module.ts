@@ -18,9 +18,7 @@ import { ShareDataService } from './Services/ShareData';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ToastrModule } from 'ngx-toastr';
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,16 +27,15 @@ import { ToastrModule } from 'ngx-toastr';
     HomeModule,
     ButtonsModule.forRoot(),
     OfficeViewModule,
-    ModalModule .forRoot(),
+    ModalModule.forRoot(),
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
     Ng2SearchPipeModule,
-    ToastrModule.forRoot()
-   
+    ToastrModule.forRoot(),
   ],
-  providers: [APIService,StoreService,ShareDataService],
+  providers: [APIService, StoreService, ShareDataService],
   bootstrap: [AppComponent],
-  exports:[ModalModule,FormsModule]
+  exports: [ModalModule, FormsModule],
 })
-export class AppModule { }
+export class AppModule {}
