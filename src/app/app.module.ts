@@ -15,6 +15,8 @@ import { APIService } from './Services/API.service';
 import { StoreService } from './Services/Store.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ShareDataService } from './Services/ShareData';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,8 @@ import { ShareDataService } from './Services/ShareData';
     ModalModule .forRoot(),
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2SearchPipeModule
    
   ],
   providers: [APIService,StoreService,ShareDataService],

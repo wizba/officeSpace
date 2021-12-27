@@ -4,7 +4,12 @@ import { Router } from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { ShareDataService } from 'src/app/Services/ShareData';
 import { OfficeModalComponent } from './OfficeModal/OfficeModal.component';
-
+import {
+  debounceTime,
+  map,
+  distinctUntilChanged,
+  filter
+} from "rxjs/operators";
 @Component({
   selector: 'app-OfficeMembers',
   templateUrl: './OfficeMembers.component.html',
@@ -17,8 +22,10 @@ export class OfficeMembersComponent implements OnInit {
   officeModal!: OfficeModalComponent;
   @ViewChild('childModal', { static: false }) childModal?: ModalDirective;
   Search:FormControl = new FormControl(''); 
+  searchText:string= '';
   cardData:any;
-  officeMembers:any;
+  officeMembers:any[] =[];
+  officeId:string ='';
   constructor(private router:Router,private share:ShareDataService) { }
 
   ngOnInit() {
@@ -27,27 +34,26 @@ export class OfficeMembersComponent implements OnInit {
     if(!this.cardData){
       this.router.navigate(['']);
     }else{
+      this.officeId =this.cardData._id;
       this.officeMembers = this.cardData.members.map((value:any) => value)
     }
     
     this.Search.valueChanges
+    .pipe(debounceTime(500))
     .subscribe((value:string)=>{
-      console.log(value);
-      
-        if(value.trim() !==" "){
-          this.cardData.members=this.cardData
-          .members
-          .filter((item:any) =>{
-
-            if(item.FirstName+''.includes(value))
-              return true
-            else
-              return false;
-            
-          })
+      this.cardData.members = this.officeMembers.filter((value:any)=>{
+        
+        if(value.FirstName.trim().includes(this.Search.value))
+        {
+          return true 
         }else{
 
+          //reset data
+            
+          return false
         }
+      })
+      
     })
 
   }
