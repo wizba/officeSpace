@@ -53,8 +53,6 @@ export class OfficeModalComponent implements OnInit {
 
     console.log(this.memberNumber);
     
-   
-
     if(member){
       this.memberToDelete =member;
     }
@@ -181,7 +179,10 @@ export class OfficeModalComponent implements OnInit {
 
 
   goBack():void{
+    console.log('test made');
+    
     this.showNextPage = false;
+    this.showActions =true;
     this.buttonText = "NEXT";
   }
 
