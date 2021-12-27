@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
+import { APIService } from 'src/app/Services/API.service';
 import { Avatars } from 'src/app/Shared/officeAvatars';
 @Component({
   selector: 'app-OfficeModal',
@@ -21,7 +22,7 @@ export class OfficeModalComponent implements OnInit {
   form!: FormGroup;
   @ViewChild('childModal', { static: false }) childModal?: ModalDirective;
 
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder,private api:APIService) { 
     this.form = this.formBuilder.group({
       FirstName: ['',Validators.required],
       LastName: ['',Validators.required]
@@ -66,7 +67,12 @@ export class OfficeModalComponent implements OnInit {
     member['avatar'] = this.selectedAvatar;
 
     this.cardData.members.push(member);
-    console.log(this.cardData);
+    let officeId = this.cardData._id;
+    //update the database 
+    this.api.updateOffice(officeId,this.cardData)
+    .subscribe(data =>{
+      console.log(data)
+    },error =>console.log(error))
     this.form.reset();
   }
  

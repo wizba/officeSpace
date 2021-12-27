@@ -28,7 +28,8 @@ export class OfficeCardComponent implements OnInit {
     this.router.navigate(['/office/members']);
   }
 
-  navToEditOffice():void{
+  navToEditOffice(data:any):void{
+    this.share.selectedOffice = data;
     this.router.navigate(['/office/edit']);
   }
 
