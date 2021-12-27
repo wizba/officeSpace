@@ -2,3 +2,12 @@
 <!-- <app-OfficeView></app-OfficeView> -->
 
 <router-outlet></router-outlet>
+<div class="spinner" *ngIf="api.loading">
+    <div>
+        <sa-spinner-dotted size="90" styles='{"color": "rgb(252, 29, 66)"}'></sa-spinner-dotted>
+        <div style="font-weight: 600;text-align: center;color: rgb(252, 29, 66);">
+            loading ....
+        </div>
+    </div>
+    
+</div>

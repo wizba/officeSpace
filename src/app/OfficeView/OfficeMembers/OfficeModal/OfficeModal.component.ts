@@ -103,6 +103,7 @@ export class OfficeModalComponent implements OnInit {
     .subscribe(data =>{
       console.log(data)
       this.toastr.success('Office added successfully')
+      this.api.loading = false;
     },error =>this.toastr.error(JSON.stringify(error)))
     this.form.reset();
   }else{
@@ -134,7 +135,7 @@ export class OfficeModalComponent implements OnInit {
     .subscribe(data =>{
     
        this.cardData = data;
-
+       this.api.loading = false;
     },error =>console.log(error))
 
   }

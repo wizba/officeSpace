@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ShareDataService } from './Services/ShareData';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ToastrModule } from 'ngx-toastr';
+import { SpinnerDottedModule } from 'spinners-angular/spinner-dotted';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -33,6 +34,7 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     Ng2SearchPipeModule,
     ToastrModule.forRoot(),
+    SpinnerDottedModule 
   ],
   providers: [APIService, StoreService, ShareDataService],
   bootstrap: [AppComponent],

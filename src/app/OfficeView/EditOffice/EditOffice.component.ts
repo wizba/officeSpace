@@ -69,7 +69,10 @@ export class EditOfficeComponent implements OnInit {
       //send to the database
       this.apiService
       .updateOffice(officeId,officeValue)
-      .subscribe(data=>this.toastr.success('Office added successfully'),
+      .subscribe(data=>{
+        this.toastr.success('Office added successfully')
+        this.apiService.loading = false;
+    },
       error=>this.toastr.error(JSON.stringify(error)));
       
       this.resetColors()
@@ -113,7 +116,10 @@ export class EditOfficeComponent implements OnInit {
     let id = this.share.selectedOffice._id;
     this.apiService
     .deleteOffice(id)
-    .subscribe(data =>this.goBack(),
+    .subscribe(data =>{
+      this.goBack()
+      this.apiService.loading = false;
+    },
     error =>console.log(error));   
   }
 

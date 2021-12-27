@@ -12,11 +12,15 @@ import { StoreService } from '../Services/Store.service';
 export class HomeComponent implements OnInit {
 
   offices:any[] =[];
-  constructor(private router:Router,private api:APIService,private store:StoreService){
+  
+  constructor(private router:Router,public api:APIService,private store:StoreService){
+    
     this.api.getOffices()
     .subscribe(data =>{
        console.log(data);
-      this.offices = data;
+      this.offices = data.reverse();
+      this.api.loading = false;
+      
     })
   }
   ngOnInit() {

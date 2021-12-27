@@ -64,7 +64,10 @@ export class NewOfficeComponent implements OnInit {
       //send to the database
       this.apiService
       .createOffice(officeValue)
-      .subscribe(data=>this.toastr.success('Office added successfully'),
+      .subscribe(data=>{
+        this.toastr.success('Office added successfully')
+        this.apiService.loading = false;
+      },
       error=>this.toastr.error(JSON.stringify(error)));
       
       this.resetColors()

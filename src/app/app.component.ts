@@ -11,6 +11,6 @@ export class AppComponent {
   title = 'officeSpace';
 
  
-
+  constructor(public api:APIService){}
 
 }
