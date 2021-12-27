@@ -18,21 +18,46 @@ export class OfficeMembersComponent implements OnInit {
   @ViewChild('childModal', { static: false }) childModal?: ModalDirective;
   Search:FormControl = new FormControl(''); 
   cardData:any;
+  officeMembers:any;
   constructor(private router:Router,private share:ShareDataService) { }
 
   ngOnInit() {
     this.cardData = this.share.selectedOffice;
-    this.Search.valueChanges.subscribe((value) => {
+    
+    if(!this.cardData){
+      this.router.navigate(['']);
+    }else{
+      this.officeMembers = this.cardData.members.map((value:any) => value)
+    }
+    
+    this.Search.valueChanges
+    .subscribe((value:string)=>{
       console.log(value);
+      
+        if(value.trim() !==" "){
+          this.cardData.members=this.cardData
+          .members
+          .filter((item:any) =>{
+
+            if(item.FirstName+''.includes(value))
+              return true
+            else
+              return false;
+            
+          })
+        }else{
+
+        }
     })
+
   }
     
-  showChildModal(actions:boolean): void {
+  showChildModal(actions:boolean,memberIndex?:number,member?:any): void {
     this.officeModal.showChildModal(actions);
   }
 
-  showActions(){
-    this.officeModal.showChildModal(true);
+  showActions(memberIndex:number,member:any){
+    this.officeModal.showChildModal(true,memberIndex,member);
   }
   hideChildModal(): void {
     this.childModal?.hide();

@@ -104,4 +104,12 @@ export class EditOfficeComponent implements OnInit {
     }
   }
 
+  deleteOffice(){
+    let id = this.share.selectedOffice._id;
+    this.apiService
+    .deleteOffice(id)
+    .subscribe(data =>this.goBack(),
+    error =>console.log(error));   
+  }
+
 }

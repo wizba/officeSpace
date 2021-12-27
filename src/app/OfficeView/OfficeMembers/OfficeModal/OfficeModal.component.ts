@@ -14,12 +14,17 @@ export class OfficeModalComponent implements OnInit {
   showNextPage:boolean = false;
   showActions:boolean = false;
   delete:boolean = false;
+  allowEdit:boolean = false;
   buttonText:string = "NEXT";
   avatars:any = Avatars;
   selectedAvatar!:string;
   selected:any;
   @Input() cardData:any;
   form!: FormGroup;
+
+  memberNumber:number =-1;
+  memberToDelete:any;
+
   @ViewChild('childModal', { static: false }) childModal?: ModalDirective;
 
   constructor(private formBuilder: FormBuilder,private api:APIService) { 
@@ -38,6 +43,20 @@ export class OfficeModalComponent implements OnInit {
    
   }
 
+  showChildModal(showActions:boolean,memberIndex?:number,member?:any): void {
+    this.showActions = showActions;
+
+    if(memberIndex){
+      this.memberNumber =memberIndex;
+    }
+
+    if(member){
+      this.memberToDelete =member;
+    }
+    
+    this.childModal?.show();
+  }
+ 
   resetAvars(){
     let avatarsLength1 = this.avatars.row1.length;
     let avatarsLength2 = this.avatars.row2.length;
@@ -63,10 +82,16 @@ export class OfficeModalComponent implements OnInit {
   }
 
   AddStaffMember(){
+
     let member = this.form.value;
     member['avatar'] = this.selectedAvatar;
 
-    this.cardData.members.push(member);
+    if(!this.allowEdit){
+      this.cardData.members.push(member);
+    }else{
+      this.updateMember(member)
+    }
+    
     let officeId = this.cardData._id;
     //update the database 
     this.api.updateOffice(officeId,this.cardData)
@@ -75,12 +100,37 @@ export class OfficeModalComponent implements OnInit {
     },error =>console.log(error))
     this.form.reset();
   }
- 
-  showChildModal(showActions:boolean): void {
-    this.showActions = showActions;
-    this.childModal?.show();
+
+
+  updateAPI(){
+    
   }
  
+  updateMember(member:any){
+    console.log(this.memberNumber);
+    this.cardData.members[this.memberNumber] = member;
+    console.log(member);
+    
+  }
+
+  resetSearchList(){
+    return this.cardData;
+  }
+  deleteStaffMember(){
+    
+    
+    let officeId = this.cardData._id; 
+    this.cardData.members.splice(this.memberNumber,1);
+    this.api.updateOffice(officeId,this.cardData)
+    .subscribe(data =>{
+    
+       this.cardData = data;
+
+    },error =>console.log(error))
+
+  }
+ 
+  
   hideChildModal(): void {
     this.childModal?.hide();
   }
@@ -108,6 +158,10 @@ export class OfficeModalComponent implements OnInit {
 
   }
   onEditStaffMember(){
+
+    this.allowEdit = true;
+    this.form.get('FirstName')?.setValue(this.memberToDelete.FirstName);
+    this.form.get('LastName')?.setValue(this.memberToDelete.LastName);
     this.showNextPage = false;
     this.showActions = false;
     this.delete = false;
@@ -121,6 +175,8 @@ export class OfficeModalComponent implements OnInit {
   }
 
   onDeleteMember(){
+
+    
     this.delete = true;
     this.showNextPage = false;
     this.buttonText = "NEXT";
