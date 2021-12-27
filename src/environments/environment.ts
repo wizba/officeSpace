@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_URL: 'http://localhost:9000',
+  API_URL: 'https://office-space-backend-williamrabs.vercel.app',
 };
 
 /*
