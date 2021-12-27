@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -14,9 +15,19 @@ export class OfficeModalComponent implements OnInit {
   delete:boolean = false;
   buttonText:string = "NEXT";
 
-  constructor() { }
+  form!: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) { 
+    this.form = this.formBuilder.group({
+      FirstName: ['',Validators.required],
+      LastName: ['',Validators.required]
+    });
+  }
 
   ngOnInit() {
+    this.form.valueChanges.subscribe((value) => {
+      console.log(value);
+    })
   }
   @ViewChild('childModal', { static: false }) childModal?: ModalDirective;
  

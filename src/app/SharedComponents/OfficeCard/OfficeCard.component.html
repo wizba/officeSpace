@@ -1,10 +1,10 @@
 <!-- [ngClass]="{office__card : !expandCard,office__card__expand :expandCard}" -->
-<div class="card office__card__expand shadow-sm" >
+<div class="card office__card__expand shadow-sm" [ngStyle]="{'background-color': cardData.color}" >
   
    <div class="office__card__body">
       <div class="row myContent" >
         <div class="col-10">
-          <span (click)='navToMembers()'>hello</span>
+          <h3 (click)='navToMembers()' style="font-weight:800;">{{cardData.officeName}}</h3>
         </div>
         <div class="col-2 pr-0">
           <svg (click)="navToEditOffice()" xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
@@ -17,7 +17,7 @@
           </svg>
         
        
-          <div class="pl-2">5 Staff Members in Office</div>
+          <div class="pl-2 card__text" >{{cardData.members.length}} Staff Members in Office</div>
         
       
       
@@ -27,12 +27,19 @@
         </div>
 
         <div class="col-12 d-flex justify-content-center office__font__one" (click)="toggleCard()">
-          <div class="mr-2">
+          <div class="mr-2" style="font-style: normal;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 22px;">
             More info
           </div>
           
-          <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+          <svg *ngIf="!expandCard" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+          </svg>
+
+          <svg *ngIf="expandCard" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
           </svg>
         </div>
 
@@ -46,7 +53,7 @@
           </svg>
         
        
-          <div class="pl-2">082 7533 263</div>
+          <div class="pl-2 card__body__text">{{cardData.phoneNumber}}</div>
         
       
       
@@ -58,7 +65,7 @@
           </svg>
         
        
-          <div class="pl-2">williamrabs@gmail.com</div>
+          <div class="pl-2 card__body__text">{{cardData.email}}</div>
         
       
       
@@ -71,7 +78,7 @@
           </svg>
         
        
-          <div class="pl-2">5 Staff Members in Office</div>
+          <div class="pl-2 card__body__text">{{cardData.members.length}} Staff Members in Office</div>
         
       
       
@@ -84,7 +91,7 @@
           </svg>
         
        
-          <div class="pl-2">44 stanley avenue, Johannesburg, Gauteng</div>
+          <div class="pl-2 card__body__text">{{cardData.physicalAddress}}</div>
         
       
       

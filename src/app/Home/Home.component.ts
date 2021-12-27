@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { APIService } from '../Services/API.service';
+import { StoreService } from '../Services/Store.service';
 
 @Component({
   selector: 'app-Home',
@@ -8,8 +10,14 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router:Router) { }
-
+  offices:any[] =[];
+  constructor(private router:Router,private api:APIService,private store:StoreService){
+    this.api.getOffices()
+    .subscribe(data =>{
+       console.log(data);
+      this.offices = data;
+    })
+  }
   ngOnInit() {
   }
 

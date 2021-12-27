@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AccordionConfig } from 'ngx-bootstrap/accordion';
  
@@ -15,6 +15,8 @@ export function getAccordionConfig(): AccordionConfig {
 export class OfficeCardComponent implements OnInit {
 
   expandCard:boolean = false;
+  @Input() cardColor: string  = 'none';
+  @Input() cardData:any;
   constructor(private router:Router) { }
 
   ngOnInit() {

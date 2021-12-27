@@ -12,11 +12,11 @@
 
 .office__card__expand{
     
-    background: radial-gradient(108.86% 100.3% at 100.06% 100.3%, #0AB169 42.03%, #0AB169 87.21%);
+    // background: radial-gradient(108.86% 100.3% at 100.06% 100.3%, #0AB169 42.03%, #0AB169 87.21%);
     border-radius: 8px;
     
     padding: 0;
-    padding-left: 5%;
+    padding-left: 2.7%;
     border:none;
     transition: height 1s ease-in;
 }
@@ -26,7 +26,7 @@
     min-height: 89px;
     .myContent
     {
-        height: 105px;
+        min-height: 105px;
         transition: height 1s ease-in;
     }
    
@@ -57,4 +57,17 @@
    // overflow-y: auto;
    transition: 0.5s;
    cursor:default
+}
+.card__text{
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 22px;
+}
+
+.card__body__text{
+    font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 15px;
 }

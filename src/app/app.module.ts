@@ -11,7 +11,9 @@ import { OfficeCardComponent } from './SharedComponents/OfficeCard/OfficeCard.co
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { OfficeViewModule } from './OfficeView/OfficeView.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { APIService } from './Services/API.service';
+import { StoreService } from './Services/Store.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,10 +28,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     OfficeViewModule,
     ModalModule .forRoot(),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
    
   ],
-  providers: [],
+  providers: [APIService,StoreService],
   bootstrap: [AppComponent],
   exports:[ModalModule,FormsModule]
 })

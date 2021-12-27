@@ -2,6 +2,7 @@
 
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
 
 /* Importing Datepicker SCSS file. */
 @import "~ngx-bootstrap/datepicker/bs-datepicker";
@@ -197,12 +198,12 @@
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: transparent;
   }
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: rgb(247, 66, 66);
+    background: rgb(102, 202, 248);
   }
   
   /* Handle on hover */
@@ -239,4 +240,13 @@
         background-color: #0D4477;
         transform: translate(280%, 584%);
     }
+
+    ::-webkit-scrollbar-thumb {
+        background: transparent;
+      }
+}
+
+body{
+    font-family:'Inter', sans-serif;
+    color:#484954;
 }

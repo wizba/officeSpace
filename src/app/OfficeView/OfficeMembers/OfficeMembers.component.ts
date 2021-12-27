@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { OfficeModalComponent } from './OfficeModal/OfficeModal.component';
@@ -13,14 +14,17 @@ export class OfficeMembersComponent implements OnInit {
   openModal: boolean = false;
   @ViewChild(OfficeModalComponent)
   officeModal!: OfficeModalComponent;
+  @ViewChild('childModal', { static: false }) childModal?: ModalDirective;
+  Search:FormControl = new FormControl('');  
+
   constructor(private router:Router) { }
 
   ngOnInit() {
+    this.Search.valueChanges.subscribe((value) => {
+      console.log(value);
+    })
   }
-  
-
-  @ViewChild('childModal', { static: false }) childModal?: ModalDirective;
- 
+    
   showChildModal(actions:boolean): void {
     this.officeModal.showChildModal(actions);
   }

@@ -299,14 +299,14 @@
     </div>
     <div class="d-flex space-between mt-3 px-0" style="width:100%">
       
-        <div class="office__color" *ngFor="let item of [1,2,3,4,5,6]">
+        <div class="office__color" (click) = "selectColor(i,color,1)" [ngStyle]="{'background-color': color,'border': selected.row1[i] ?'4px solid #475569':'none','box-shadow': selected.row1[i] ?'0px 1px 3px rgba(0, 0, 0, 0.1)':'none' }" *ngFor="let color of colors.row1; let i = index">
 
         </div>
       
     </div>
     <div class="d-flex space-evenly mt-3" style="width:100%">
       
-        <div class="office__color" *ngFor="let item of [1,2,3,4,5]">
+        <div class="office__color" (click) = "selectColor(i,color,2)"  [ngStyle]="{'background-color': color,'border': selected.row2[i] ?'4px solid #475569':'none','box-shadow': selected.row2[i] ?'0px 1px 3px rgba(0, 0, 0, 0.1)':'none' }" *ngFor="let color of colors.row2;let i = index">
 
         </div>
       
