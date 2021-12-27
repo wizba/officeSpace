@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { APIService } from './Services/API.service';
 import { StoreService } from './Services/Store.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ShareDataService } from './Services/ShareData';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
    
   ],
-  providers: [APIService,StoreService],
+  providers: [APIService,StoreService,ShareDataService],
   bootstrap: [AppComponent],
   exports:[ModalModule,FormsModule]
 })

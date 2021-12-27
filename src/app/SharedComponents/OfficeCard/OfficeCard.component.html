@@ -4,7 +4,7 @@
    <div class="office__card__body">
       <div class="row myContent" >
         <div class="col-10">
-          <h3 (click)='navToMembers()' style="font-weight:800;">{{cardData.officeName}}</h3>
+          <h3 (click)='navToMembers(cardData)' style="font-weight:800;">{{cardData.officeName}}</h3>
         </div>
         <div class="col-2 pr-0">
           <svg (click)="navToEditOffice()" xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">

@@ -53,18 +53,22 @@
           Avatar 
         </h4>
          <div class="row animate__animated animate__fadeIn" *ngIf="this.showNextPage" >
-           <div class="col-3 d-flex justify-content-center mt-2" *ngFor="let item of [1,2,3,4]">
+           <div class="col-3 d-flex justify-content-center mt-2" *ngFor="let item of avatars.row1;let i = index">
              <img
-             src="`../../../assets/icon-avatar-1.png"
+             [src]="'../../../assets/' + item"
              class="img-fluid"
              alt="Responsive image"
+             [ngStyle]="{'border': selected.row1[i] ?'4px solid #475569':'none','box-shadow': selected.row1[i] ?'0px 1px 3px rgba(0, 0, 0, 0.1)':'none','border-radius':'50%' }"
+             (click) = "selectAvatar(i,item,1)"
            />
            </div>
-           <div class="col-4 d-flex justify-content-center mt-2" *ngFor="let item of [1,2,3]">
+           <div class="col-4 d-flex justify-content-center mt-2" *ngFor="let item of avatars.row2;let i = index">
              <img
-             src="`../../../assets/icon-avatar-1.png"
+             [src]="'../../../assets/' + item"
              class="img-fluid"
              alt="Responsive image"
+             [ngStyle]="{'border': selected.row2[i] ?'4px solid #475569':'none','box-shadow': selected.row2[i] ?'0px 1px 3px rgba(0, 0, 0, 0.1)':'none','border-radius':'50%' }"
+             (click) = "selectAvatar(i,item,2)"
            />
            </div>
          </div>

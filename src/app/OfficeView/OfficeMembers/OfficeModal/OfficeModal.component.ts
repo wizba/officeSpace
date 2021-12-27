@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-
+import { Avatars } from 'src/app/Shared/officeAvatars';
 @Component({
   selector: 'app-OfficeModal',
   templateUrl: './OfficeModal.component.html',
@@ -14,22 +14,61 @@ export class OfficeModalComponent implements OnInit {
   showActions:boolean = false;
   delete:boolean = false;
   buttonText:string = "NEXT";
-
+  avatars:any = Avatars;
+  selectedAvatar!:string;
+  selected:any;
+  @Input() cardData:any;
   form!: FormGroup;
+  @ViewChild('childModal', { static: false }) childModal?: ModalDirective;
 
   constructor(private formBuilder: FormBuilder) { 
     this.form = this.formBuilder.group({
       FirstName: ['',Validators.required],
       LastName: ['',Validators.required]
     });
+    this.selectedAvatar = ''
   }
 
   ngOnInit() {
     this.form.valueChanges.subscribe((value) => {
       console.log(value);
-    })
+    });
+    this.resetAvars();
+   
   }
-  @ViewChild('childModal', { static: false }) childModal?: ModalDirective;
+
+  resetAvars(){
+    let avatarsLength1 = this.avatars.row1.length;
+    let avatarsLength2 = this.avatars.row2.length;
+    this.selected ={
+      row1:Array(avatarsLength1).fill(false),
+      row2:Array(avatarsLength2).fill(false)
+    }
+  }
+  selectAvatar(index:number,avatar:string,row:number){
+
+    //reset all colors
+    this.resetAvars();
+
+    //set selected color
+    if(row === 1){
+      this.selected.row1[index] = true;
+    }else if(row === 2){
+      this.selected.row2[index] = true;
+    }
+
+    this.selectedAvatar = avatar;
+    
+  }
+
+  AddStaffMember(){
+    let member = this.form.value;
+    member['avatar'] = this.selectedAvatar;
+
+    this.cardData.members.push(member);
+    console.log(this.cardData);
+    this.form.reset();
+  }
  
   showChildModal(showActions:boolean): void {
     this.showActions = showActions;
@@ -52,7 +91,10 @@ export class OfficeModalComponent implements OnInit {
       this.showNextPage = true;
       this.buttonText = "ADD STAFF MEMBER";
     }
-    else{
+    else
+    if(this.buttonText === "ADD STAFF MEMBER")
+    {
+      this.AddStaffMember()
       this.showNextPage = false;
       this.buttonText = "NEXT";
       this.hideChildModal();
