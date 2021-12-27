@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 export class ShareDataService {
 
     private data:any;
+    private selectecMemberId!: number;
     constructor() { }
     
     set selectedOffice(data:any){
@@ -12,5 +13,13 @@ export class ShareDataService {
 
     get selectedOffice(){
         return this.data;
+    }
+
+    set selectedMember(memberId:number){
+        this.selectecMemberId = memberId
+    }
+
+    get selectedMember(){
+        return this.selectecMemberId;
     }
 }

@@ -63,6 +63,11 @@ export class OfficeMembersComponent implements OnInit {
   }
 
   showActions(memberIndex:number,member:any){
+
+    this.share.selectedMember = memberIndex;
+
+    console.log(this.share.selectedMember);
+    
     this.officeModal.showChildModal(true,memberIndex,member);
   }
   hideChildModal(): void {

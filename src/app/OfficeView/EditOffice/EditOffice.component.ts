@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { APIService } from 'src/app/Services/API.service';
 import { ShareDataService } from 'src/app/Services/ShareData';
 import { Color } from 'src/app/Shared/officeColors';
@@ -17,7 +18,11 @@ export class EditOfficeComponent implements OnInit {
   selected:any;
   selectedColor!:string;
 
-  constructor(private router:Router,private formBuilder: FormBuilder,private share:ShareDataService,private apiService:APIService) {
+  constructor(private router:Router,
+    private formBuilder: FormBuilder,
+    private share:ShareDataService,
+    private apiService:APIService,
+    private toastr: ToastrService) {
     this.form = this.formBuilder.group({
       officeName: [this.share.selectedOffice.officeName,Validators.required],
       physicalAddress: [this.share.selectedOffice.physicalAddress,Validators.required],
@@ -64,13 +69,13 @@ export class EditOfficeComponent implements OnInit {
       //send to the database
       this.apiService
       .updateOffice(officeId,officeValue)
-      .subscribe(data=>console.log(data),
-      error=>console.log(error));
+      .subscribe(data=>this.toastr.success('Office added successfully'),
+      error=>this.toastr.error(JSON.stringify(error)));
       
       this.resetColors()
       this.clearForm();
     }else{
-      alert('invalid input')
+      this.toastr.error('please check all fields for correct data','Invalid input!!!')
     }
    
   }

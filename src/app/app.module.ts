@@ -16,7 +16,7 @@ import { StoreService } from './Services/Store.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ShareDataService } from './Services/ShareData';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +33,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    ToastrModule.forRoot()
    
   ],
   providers: [APIService,StoreService,ShareDataService],

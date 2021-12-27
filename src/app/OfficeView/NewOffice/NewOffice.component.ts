@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { APIService } from 'src/app/Services/API.service';
 import { Color } from 'src/app/Shared/officeColors';
 @Component({
@@ -17,7 +18,8 @@ export class NewOfficeComponent implements OnInit {
 
   constructor(private router:Router,
     private formBuilder: FormBuilder,
-    private apiService:APIService) {
+    private apiService:APIService,
+    private toastr: ToastrService) {
     this.form = this.formBuilder.group({
       officeName: ['',Validators.required],
       physicalAddress: ['',Validators.required],
@@ -62,13 +64,14 @@ export class NewOfficeComponent implements OnInit {
       //send to the database
       this.apiService
       .createOffice(officeValue)
-      .subscribe(data=>console.log(data),
-      error=>console.log(error));
+      .subscribe(data=>this.toastr.success('Office added successfully'),
+      error=>this.toastr.error(JSON.stringify(error)));
       
       this.resetColors()
       this.clearForm();
     }else{
-      alert('invalid input')
+      
+        this.toastr.error('please check all fields for correct data','Invalid input!!!')
     }
    
   }

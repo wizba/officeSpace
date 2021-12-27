@@ -1,7 +1,9 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
+import { ToastrService } from 'ngx-toastr';
 import { APIService } from 'src/app/Services/API.service';
+import { ShareDataService } from 'src/app/Services/ShareData';
 import { Avatars } from 'src/app/Shared/officeAvatars';
 @Component({
   selector: 'app-OfficeModal',
@@ -22,12 +24,15 @@ export class OfficeModalComponent implements OnInit {
   @Input() cardData:any;
   form!: FormGroup;
 
-  memberNumber:number =-1;
+  memberNumber!: number;
   memberToDelete:any;
 
   @ViewChild('childModal', { static: false }) childModal?: ModalDirective;
 
-  constructor(private formBuilder: FormBuilder,private api:APIService) { 
+  constructor(private formBuilder: FormBuilder,
+    private api:APIService, 
+    private share:ShareDataService,
+    private toastr: ToastrService) { 
     this.form = this.formBuilder.group({
       FirstName: ['',Validators.required],
       LastName: ['',Validators.required]
@@ -40,15 +45,15 @@ export class OfficeModalComponent implements OnInit {
       console.log(value);
     });
     this.resetAvars();
-   
+    
   }
 
   showChildModal(showActions:boolean,memberIndex?:number,member?:any): void {
     this.showActions = showActions;
 
-    if(memberIndex){
-      this.memberNumber =memberIndex;
-    }
+    console.log(this.memberNumber);
+    
+   
 
     if(member){
       this.memberToDelete =member;
@@ -85,6 +90,7 @@ export class OfficeModalComponent implements OnInit {
 
     let member = this.form.value;
     member['avatar'] = this.selectedAvatar;
+    let isInValid = this.form.invalid;
 
     if(!this.allowEdit){
       this.cardData.members.push(member);
@@ -94,11 +100,16 @@ export class OfficeModalComponent implements OnInit {
     
     let officeId = this.cardData._id;
     //update the database 
+    if(!isInValid){
     this.api.updateOffice(officeId,this.cardData)
     .subscribe(data =>{
       console.log(data)
-    },error =>console.log(error))
+      this.toastr.success('Office added successfully')
+    },error =>this.toastr.error(JSON.stringify(error)))
     this.form.reset();
+  }else{
+    this.toastr.error('please check all fields for correct data','Invalid input!!!')
+  }
   }
 
 
@@ -108,19 +119,19 @@ export class OfficeModalComponent implements OnInit {
  
   updateMember(member:any){
     console.log(this.memberNumber);
-    this.cardData.members[this.memberNumber] = member;
+    this.cardData.members[this.share.selectedMember] = member;
     console.log(member);
+
+    
     
   }
 
-  resetSearchList(){
-    return this.cardData;
-  }
+  
   deleteStaffMember(){
     
     
     let officeId = this.cardData._id; 
-    this.cardData.members.splice(this.memberNumber,1);
+    this.cardData.members.splice(this.share.selectedMember,1);
     this.api.updateOffice(officeId,this.cardData)
     .subscribe(data =>{
     
