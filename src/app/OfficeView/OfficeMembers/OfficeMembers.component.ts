@@ -6,9 +6,7 @@ import { ShareDataService } from 'src/app/Services/ShareData';
 import { OfficeModalComponent } from './OfficeModal/OfficeModal.component';
 import {
   debounceTime,
-  map,
-  distinctUntilChanged,
-  filter
+  map
 } from "rxjs/operators";
 @Component({
   selector: 'app-OfficeMembers',
@@ -41,9 +39,11 @@ export class OfficeMembersComponent implements OnInit {
     this.Search.valueChanges
     .pipe(debounceTime(500))
     .subscribe((value:string)=>{
-      this.cardData.members = this.officeMembers.filter((value:any)=>{
+      this.cardData.members = this.officeMembers.filter((data:any)=>{
         
-        if(value.FirstName.trim().includes(this.Search.value))
+        let fName =data.FirstName.trim().toLocaleLowerCase();
+        let lName = data.LastName.trim().toLocaleLowerCase();
+        if(fName.includes(this.Search.value.toLocaleLowerCase().trim()) || lName.trim().toLocaleLowerCase().includes(this.Search.value.toLocaleLowerCase().trim()) )
         {
           return true 
         }else{
